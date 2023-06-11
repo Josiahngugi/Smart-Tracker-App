@@ -8,14 +8,33 @@ function saveExpense(){
 
     const expenseObject ={
         "name":expenseName.value,
-        "allocatedAmount":expenseAmount.value
+        "allocatedAmount":parseInt(expenseAmount.value)
     }
     expenses.push(expenseObject)
-    
     localStorage.setItem("expense", JSON.stringify(expenses))
+
    
 }
 
-var storedValue =localStorage.getItem("expense")
-console.log(JSON.parse(storedValue))
+
+var storedValue =JSON.parse(localStorage.getItem("expense"))
+
+const assortedExpense = storedValue.reduce((acc, current)=>{
+    const index = acc.findIndex(item => item.name === current.name)
+    index >-1 ? acc[index].allocatedAmount += current.allocatedAmount : acc.push({
+        name : current.name,
+        allocatedAmount: current.allocatedAmount
+    })
+    return acc
+},[])
+
+const dataElement = document.getElementById("DisplaySection")
+assortedExpense.map(item=>{
+    dataElement.insertAdjacentHTML('afterend', `
+    <div class="cell" data-title="expenseName"> ${item.name}</div>
+    <div class="cell" data-title="allocatedAmount"> ${item.allocatedAmount}</div>
+    `)
+})
+
+console.log(assortedExpense)
 
