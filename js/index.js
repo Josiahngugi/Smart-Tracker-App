@@ -31,7 +31,7 @@ const assortedExpense = storedValue.reduce((acc, current)=>{
 const dataElement = document.getElementById("DisplaySection")
 assortedExpense.map(item=>{
     dataElement.insertAdjacentHTML('afterend', `
-    <span class="cell" data-title="expenseName"> ${item.name} :</span>
+    <span class="cell text-teal-400 font-bold " data-title="expenseName"> ${item.name} :</span>
     <spanclass="cell" data-title="allocatedAmount"> ${item.allocatedAmount}</span>
     <br>
     `)
