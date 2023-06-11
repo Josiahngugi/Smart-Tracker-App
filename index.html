@@ -9,27 +9,29 @@
 </head>
 <body>
     <div class="p-6">
-        <div class="p-6 text-center shadow-xl">
+        <div class="p-6 text-center shadow-md">
             <h1 class="text-xl text-teal-600">Smart Budget Tracker</h1>
         </div>
-        <div class="InputSection">
-            <h4> create Expense</h4>
-            <form>
-                <label for="expenseName">Expense</label>
-                <select name=" ExpenseCategory" id="expenseName">
-                    <option value="Transport">Transport</option>
-                    <option value="Food">Food</option>
-                    <option value="Clothes">Clothes</option>
-                    <option value="Entainment">Entainment</option>
-                </select>
-                <label for="AllocatedAmount">Allocate Amount</label>
-                <input type="number" name="AllocatedAmount" id="expenseAmount">
-                <input type="submit" id="SaveExpense" value="Submit" onclick="saveExpense()">
-            </form>
-           </div>
-           <div class=" DisplaySection" id ="DisplaySection">
-            <h4>Expenses</h4>
-           </div>
+        <div class="">
+            <div class="InputSection text-center ">
+                <h4 class="p-6"> Create Expense</h4>
+                <form class="bg-white shadow-md rounded py-6">
+                    <label for="expenseName" class="text-teal-300 font-bold ">Expense</label>
+                    <select name=" ExpenseCategory" id="expenseName" class="border rounded-md p-2 focus:shadow-outline mx-3">
+                        <option value="Transport">Transport</option>
+                        <option value="Food">Food</option>
+                        <option value="Clothes">Clothes</option>
+                        <option value="Entainment">Entainment</option>
+                    </select>
+                    <label for="AllocatedAmount" class="text-teal-300 font-bold">Allocate Amount</label>
+                    <input type="number" name="AllocatedAmount" id="expenseAmount" class="border rounded-md p-2 focus:shadow-outline">
+                    <input type="submit" id="SaveExpense" value="Submit" onclick="saveExpense()" class="bg-teal-300 hover: bg-teal-700 rounded-xl p-2 text-white mx-3">
+                </form>
+               </div>
+               <div class=" DisplaySection " id ="DisplaySection">
+                <h4>Expenses</h4>
+               </div>
+        </div>
     </div>
    
 <script src="js/index.js"></script>
