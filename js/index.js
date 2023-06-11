@@ -19,6 +19,8 @@ function saveExpense(){
 
 var storedValue =JSON.parse(localStorage.getItem("expense"))
 
+// assorting expenses per category
+
 const assortedExpense = storedValue.reduce((acc, current)=>{
     const index = acc.findIndex(item => item.name === current.name)
     index >-1 ? acc[index].allocatedAmount += current.allocatedAmount : acc.push({
@@ -27,6 +29,8 @@ const assortedExpense = storedValue.reduce((acc, current)=>{
     })
     return acc
 },[])
+
+// rendering assorted expense array
 
 const dataElement = document.getElementById("DisplaySection")
 assortedExpense.map(item=>{
@@ -37,5 +41,10 @@ assortedExpense.map(item=>{
     `)
 })
 
-console.log(assortedExpense)
+// sum up total expenses
+const totalExpense = assortedExpense.reduce((total, current)=>{
+    return total + current.allocatedAmount
+},0)
+document.getElementById("totalExpense").innerHTML=` Total Amount Spent : ${totalExpense}`
+console.log(totalExpense)
 
